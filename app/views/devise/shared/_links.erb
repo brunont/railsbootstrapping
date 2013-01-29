@@ -1,0 +1,30 @@
+<%- if controller_name != 'sessions' %>
+  <!-- <%= link_to "Sign in", new_session_path(resource_name) %><br /> -->
+  <p class="muted">
+    <small><em>If you already registered an app, please sign in <!-- here or --> with your private link we've sent on your e-mail.</em></small>
+    <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+      <small><em><%= link_to "Didn't receive our e-mail?", new_confirmation_path(resource_name) %></em></small>
+    <% end -%>
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <br />
+      <small><em>If you never registered an app, please <%= link_to "sign up", new_registration_path(resource_name) %>.</em></small>
+    <% end -%>    
+  </p>
+<% end -%>
+
+
+
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<% end -%>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+<% end -%>
+
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+  <% end -%>
+<% end -%>

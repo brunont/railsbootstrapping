@@ -1,0 +1,28 @@
+<%= content_for :title do %>Resend e-mail<% end %>
+
+<h1>Didn't receive our e-mail?</h1>
+<h2>Re-send it now!</h2>
+
+<br/>
+
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), html: {:method => :post, class: "form-horizontal"}) do |f| %>
+  <%= devise_error_messages! %>
+  
+  <div class="control-group">
+    <%= f.label "Your e-mail", class: "control-label" %>
+    <div class="controls">
+      <%= f.email_field :email, class: "required e-mail" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit("Resend e-mail", class: "btn btn-primary btn-large") %>
+    </div>
+  </div>
+
+<% end %>
+
+<br/><br/>
+
+<%= render "devise/shared/links" %>

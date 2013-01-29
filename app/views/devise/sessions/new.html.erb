@@ -1,0 +1,34 @@
+<%= content_for :title do %>Login<% end %>
+
+<h1>Login</h1>
+
+<br/>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="control-group">
+    <%= f.label "Login", class: "control-label" %>
+    <div class="controls">
+      <%= text_field_tag :login, nil, class: "required" %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label "Senha", class: "control-label" %>
+    <div class="controls">
+      <%= text_field_tag :password, nil, class: "required" %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit("Login", class: "btn btn-primary btn-large") %>
+    </div>
+  </div>
+
+<% end %>
+
+<br/><br/>
+
+<%= render "devise/shared/links" %>

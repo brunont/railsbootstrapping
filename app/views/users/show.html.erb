@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Excluded:</b>
+  <%= @user.excluded %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+
+<%= content_for :title do %><%= @user.name %><% end %>
+
+<legend><%= @user.name %><span class="muted pull-right"><small><em><%= @user.email %></em></small></span></legend>
+
+<p class="lead">
+  <span class="app_status" action="">
+    <%= @user.name %>
+  </span>
+  <span class="loading hidden"><%= image_tag "loading.gif" %></span>
+</p>
+<p id="time_ago" class="muted"><small><em>Created <%= time_ago_in_words(@user.created_at) %> ago.</em></small></p>
+
+<br/><br/>
+
+<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-large" %>
+<br/>
+

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :rememberable, :trackable, :token_authenticatable #, :registerable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name
 
   # Default Behaviour: Work only with elements that has not been logically excluded
   default_scope where(:excluded => false)
